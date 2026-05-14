@@ -454,28 +454,13 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
       _predictions = {};
     });
 
-    // 50'şer 50'şer paketler halinde (Batch Processing) gönder
-    const int batchSize = 50;
-    for (int i = 0; i < _inboxMessages.length; i += batchSize) {
+    for (int i = 0; i < _inboxMessages.length; i++) {
       if (!_isScanning) break; // iptal kontrolü
-
-      final end = (i + batchSize < _inboxMessages.length) ? i + batchSize : _inboxMessages.length;
-      final batch = _inboxMessages.sublist(i, end);
-      
-      final messagesData = batch.map((msg) => {
-        'message': msg.body ?? '',
-        'sender': msg.address ?? ''
-      }).toList();
-
-      final results = await checkBulkSmsWithApi(messagesData);
-      
+      final msg = _inboxMessages[i];
+      final result = await checkSmsWithApi(msg.body ?? '', msg.address ?? '');
       setState(() {
-        if (results != null) {
-          for (int j = 0; j < results.length; j++) {
-            _predictions[i + j] = results[j] as Map<String, dynamic>;
-          }
-        }
-        _scanProgress = end;
+        if (result != null) _predictions[i] = result;
+        _scanProgress = i + 1;
       });
     }
 
