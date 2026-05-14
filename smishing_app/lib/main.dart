@@ -178,10 +178,10 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
     const NotificationDetails notificationDetails = NotificationDetails(android: androidNotificationDetails);
     
     await flutterLocalNotificationsPlugin.show(
-      0,
-      'SMS Security',
-      'Zararlı mesajlarınız birikmiş olabilir. Tarama yapmak ister misiniz?',
-      notificationDetails,
+      id: 0,
+      title: 'SMS Security',
+      body: 'Zararlı mesajlarınız birikmiş olabilir. Tarama yapmak ister misiniz?',
+      notificationDetails: notificationDetails,
     );
     
     if (mounted) {
