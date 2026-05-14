@@ -294,13 +294,19 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
   }
 
   Future<Map<String, dynamic>?> checkSmsWithApi(String message, String sender) async {
-    final ip = _ipController.text.trim();
+    String ip = _ipController.text.trim();
     if (ip.isEmpty || ip.contains('X')) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Lütfen geçerli bir API IP adresi girin!')),
       );
       return null;
     }
+
+    // Sonda '/' varsa kaldır
+    if (ip.endsWith('/')) {
+      ip = ip.substring(0, ip.length - 1);
+    }
+
     try {
       String urlString;
       if (ip.startsWith('http')) {
@@ -319,16 +325,31 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
 
       if (response.statusCode == 200) {
         return jsonDecode(response.body);
+      } else {
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('API Hatası: \${response.statusCode}')),
+          );
+        }
       }
     } catch (e) {
-      // Sessizce devam et toplu taramada
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Bağlantı Hatası: \$e')),
+        );
+      }
     }
     return null;
   }
 
   Future<List<dynamic>?> checkBulkSmsWithApi(List<Map<String, String>> messages) async {
-    final ip = _ipController.text.trim();
+    String ip = _ipController.text.trim();
     if (ip.isEmpty || ip.contains('X')) return null;
+
+    // Sonda '/' varsa kaldır
+    if (ip.endsWith('/')) {
+      ip = ip.substring(0, ip.length - 1);
+    }
 
     try {
       String urlString;
@@ -349,9 +370,19 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
       if (response.statusCode == 200) {
         final decoded = jsonDecode(response.body);
         return decoded['results'] as List<dynamic>;
+      } else {
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('API Hatası: \${response.statusCode} - \${response.body}')),
+          );
+        }
       }
     } catch (e) {
-      // Hata olursa null dön
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Bağlantı Hatası: \$e')),
+        );
+      }
     }
     return null;
   }
