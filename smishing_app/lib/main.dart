@@ -65,10 +65,13 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      body: SizedBox.expand(
-        child: Image.asset(
-          'assets/logo.gif',
-          fit: BoxFit.cover,
+      body: Center(
+        child: FractionallySizedBox(
+          widthFactor: 0.8,
+          child: Image.asset(
+            'assets/logo.gif',
+            fit: BoxFit.contain,
+          ),
         ),
       ),
     );
