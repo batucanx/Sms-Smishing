@@ -326,6 +326,36 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
     return null;
   }
 
+  Future<List<dynamic>?> checkBulkSmsWithApi(List<Map<String, String>> messages) async {
+    final ip = _ipController.text.trim();
+    if (ip.isEmpty || ip.contains('X')) return null;
+
+    try {
+      String urlString;
+      if (ip.startsWith('http')) {
+        urlString = '$ip/predict_bulk';
+      } else if (ip.contains('onrender.com')) {
+        urlString = 'https://$ip/predict_bulk';
+      } else {
+        urlString = 'http://$ip:8000/predict_bulk';
+      }
+
+      final response = await http.post(
+        Uri.parse(urlString),
+        headers: {'Content-Type': 'application/json'},
+        body: jsonEncode({'messages': messages}),
+      ).timeout(const Duration(seconds: 60)); // Toplu tarama uzun sürebilir
+
+      if (response.statusCode == 200) {
+        final decoded = jsonDecode(response.body);
+        return decoded['results'] as List<dynamic>;
+      }
+    } catch (e) {
+      // Hata olursa null dön
+    }
+    return null;
+  }
+
   Future<void> _testManualMessage() async {
     if (_manualSmsController.text.isEmpty) return;
     setState(() {
@@ -393,13 +423,28 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
       _predictions = {};
     });
 
-    for (int i = 0; i < _inboxMessages.length; i++) {
+    // 50'şer 50'şer paketler halinde (Batch Processing) gönder
+    const int batchSize = 50;
+    for (int i = 0; i < _inboxMessages.length; i += batchSize) {
       if (!_isScanning) break; // iptal kontrolü
-      final msg = _inboxMessages[i];
-      final result = await checkSmsWithApi(msg.body ?? '', msg.address ?? '');
+
+      final end = (i + batchSize < _inboxMessages.length) ? i + batchSize : _inboxMessages.length;
+      final batch = _inboxMessages.sublist(i, end);
+      
+      final messagesData = batch.map((msg) => {
+        'message': msg.body ?? '',
+        'sender': msg.address ?? ''
+      }).toList();
+
+      final results = await checkBulkSmsWithApi(messagesData);
+      
       setState(() {
-        if (result != null) _predictions[i] = result;
-        _scanProgress = i + 1;
+        if (results != null) {
+          for (int j = 0; j < results.length; j++) {
+            _predictions[i + j] = results[j] as Map<String, dynamic>;
+          }
+        }
+        _scanProgress = end;
       });
     }
 
