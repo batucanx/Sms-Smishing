@@ -404,8 +404,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
           ElevatedButton(
             onPressed: () => Navigator.pop(ctx, true),
             style: ElevatedButton.styleFrom(
-              backgroundColor: Color(0xFFFFFFFF).withValues(alpha: 0.2),
-              foregroundColor: const Color(0xFFFFFFFF),
+              backgroundColor: Color(0xFFFFFFFF), foregroundColor: Colors.black,
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
             ),
             child: const Text('Anladım, Taramayı Başlat'),
@@ -1011,8 +1010,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                 icon: const Icon(Icons.security, size: 16),
                 label: const Text('Tara'),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xFFFFFFFF),
-                  foregroundColor: const Color(0xFFFFFFFF),
+                  backgroundColor: Color(0xFFFFFFFF), foregroundColor: Colors.black,
                   side: const BorderSide(color: Color(0xFFFFFFFF)),
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
                 ),
@@ -1166,8 +1164,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                               icon: const Icon(Icons.radar, size: 16),
                               label: const Text('Tümünü Tara'),
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: Color(0xFFFFFFFF).withValues(alpha: 0.15),
-                                foregroundColor: const Color(0xFFFFFFFF),
+                                backgroundColor: Color(0xFFFFFFFF), foregroundColor: Colors.black,
                                 side: const BorderSide(color: Color(0xFFFFFFFF)),
                                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
                                 padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
@@ -1343,7 +1340,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                                 label: const Text('Listeyi Yenile'),
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: Color(0xFFFFFFFF),
-                                  foregroundColor: Colors.white,
+                                  foregroundColor: Colors.black,
                                 ),
                               ),
                             ],
@@ -1463,8 +1460,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                                     icon: const Icon(Icons.settings, size: 18),
                                     label: const Text('Varsayılan SMS Uygulaması Yap'),
                                     style: ElevatedButton.styleFrom(
-                                      backgroundColor: Color(0xFFFFFFFF).withValues(alpha: 0.2),
-                                      foregroundColor: const Color(0xFFFFFFFF),
+                                      backgroundColor: Color(0xFFFFFFFF), foregroundColor: Colors.black,
                                       side: const BorderSide(color: Color(0xFFFFFFFF)),
                                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                                       padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
@@ -1477,7 +1473,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                                     label: const Text('Yeniden Tara'),
                                     style: ElevatedButton.styleFrom(
                                       backgroundColor: Color(0xFFFFFFFF),
-                                      foregroundColor: Colors.white,
+                                      foregroundColor: Colors.black,
                                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                                       padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
                                     ),
@@ -1584,8 +1580,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                                                         icon: const Icon(Icons.radar, size: 16),
                                                         label: const Text('Tara'),
                                                         style: ElevatedButton.styleFrom(
-                                                          backgroundColor: Color(0xFFFFFFFF).withValues(alpha: 0.15),
-                                                          foregroundColor: const Color(0xFFFFFFFF),
+                                                          backgroundColor: Color(0xFFFFFFFF), foregroundColor: Colors.black,
                                                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                                                           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                                                         ),
