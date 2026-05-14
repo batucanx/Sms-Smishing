@@ -32,10 +32,10 @@ class SmishingApp extends StatelessWidget {
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: Colors.transparent,
         colorScheme: const ColorScheme.dark(
-          primary: Color(0xFFB48EAD),
-          secondary: Color(0xFF88C0D0),
+          primary: Color(0xFFFFFFFF),
+          secondary: Color(0xFFE5E5E5),
         ),
-        textTheme: GoogleFonts.interTextTheme(ThemeData.dark().textTheme),
+        textTheme: GoogleFonts.oswaldTextTheme(ThemeData.dark().textTheme),
         useMaterial3: true,
       ),
       home: const SplashScreen(),
@@ -64,7 +64,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF0A0A0C),
+      backgroundColor: Colors.black,
       body: Center(
         child: Image.asset(
           'assets/logo.gif',
@@ -206,8 +206,8 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
         showDialog(
           context: context,
           builder: (ctx) => AlertDialog(
-            backgroundColor: const Color(0x0DFFFFFF),
-            title: Text('SMS Debug', style: GoogleFonts.inter(color: Colors.white)),
+            backgroundColor: const Color(0xFF1C1C1E),
+            title: Text('SMS Debug', style: GoogleFonts.oswald(color: Colors.white)),
             content: SizedBox(
               width: double.maxFinite,
               child: SingleChildScrollView(
@@ -220,7 +220,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
             actions: [
               TextButton(
                 onPressed: () => Navigator.pop(ctx),
-                child: const Text('Kapat', style: TextStyle(color: Color(0xFF88C0D0))),
+                child: const Text('Kapat', style: TextStyle(color: Color(0xFFFFFFFF))),
               ),
             ],
           ),
@@ -412,15 +412,15 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
     final bool? shouldContinue = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
-        backgroundColor: const Color(0x0DFFFFFF),
+        backgroundColor: const Color(0xFF1C1C1E),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         title: Row(
           children: [
-            const Icon(Icons.info_outline, color: Color(0xFF88C0D0), size: 28),
+            const Icon(Icons.info_outline, color: Color(0xFFFFFFFF), size: 28),
             const SizedBox(width: 10),
             Expanded(
               child: Text('Google Mesajlar Bilgilendirmesi',
-                  style: GoogleFonts.inter(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16)),
+                  style: GoogleFonts.oswald(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16)),
             ),
           ],
         ),
@@ -436,8 +436,8 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
           ElevatedButton(
             onPressed: () => Navigator.pop(ctx, true),
             style: ElevatedButton.styleFrom(
-              backgroundColor: Color(0xFF88C0D0).withValues(alpha: 0.2),
-              foregroundColor: const Color(0xFF88C0D0),
+              backgroundColor: Color(0xFFFFFFFF).withValues(alpha: 0.2),
+              foregroundColor: const Color(0xFFFFFFFF),
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
             ),
             child: const Text('Anladım, Taramayı Başlat'),
@@ -544,15 +544,15 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
       context: context,
       barrierDismissible: false,
       builder: (ctx) => AlertDialog(
-        backgroundColor: const Color(0x0DFFFFFF),
+        backgroundColor: const Color(0xFF1C1C1E),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const CircularProgressIndicator(color: Color(0xFF88C0D0)),
+            const CircularProgressIndicator(color: Color(0xFFFFFFFF)),
             const SizedBox(height: 16),
             Text('${numbers.length} numara engelleniyor...',
-                style: GoogleFonts.inter(color: Colors.white)),
+                style: GoogleFonts.oswald(color: Colors.white)),
           ],
         ),
       ),
@@ -595,15 +595,15 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
     showDialog(
       context: context,
       builder: (ctx) => AlertDialog(
-        backgroundColor: const Color(0x0DFFFFFF),
+        backgroundColor: const Color(0xFF1C1C1E),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         title: Row(
           children: [
-            const Icon(Icons.info_outline, color: Color(0xFF88C0D0), size: 28),
+            const Icon(Icons.info_outline, color: Color(0xFFFFFFFF), size: 28),
             const SizedBox(width: 10),
             Expanded(
               child: Text('Bir Adım Gerekli',
-                  style: GoogleFonts.inter(color: Colors.white, fontWeight: FontWeight.bold)),
+                  style: GoogleFonts.oswald(color: Colors.white, fontWeight: FontWeight.bold)),
             ),
           ],
         ),
@@ -620,7 +620,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
               ),
               child: Text(
                 '$numberCount spam numarayı engellemek için SMS Security\'nin geçici olarak varsayılan mesaj uygulaması olması gerekiyor.',
-                style: GoogleFonts.inter(color: Colors.white70, fontSize: 13),
+                style: GoogleFonts.oswald(color: Colors.white70, fontSize: 13),
               ),
             ),
             const SizedBox(height: 16),
@@ -631,14 +631,14 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
             const SizedBox(height: 8),
             Text(
               '⚠️ Bu süreçte yeni SMS almak için telefonunu kapat/aç gerekmez.',
-              style: GoogleFonts.inter(color: Colors.white54, fontSize: 12),
+              style: GoogleFonts.oswald(color: Colors.white54, fontSize: 12),
             ),
           ],
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(ctx),
-            child: Text('Vazgeç', style: GoogleFonts.inter(color: Colors.white54)),
+            child: Text('Vazgeç', style: GoogleFonts.oswald(color: Colors.white54)),
           ),
           ElevatedButton.icon(
             onPressed: () {
@@ -646,9 +646,9 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
               _requestDefaultSmsApp();
             },
             icon: const Icon(Icons.settings, size: 16),
-            label: Text('Varsayılan Yap', style: GoogleFonts.inter(fontWeight: FontWeight.bold)),
+            label: Text('Varsayılan Yap', style: GoogleFonts.oswald(fontWeight: FontWeight.bold)),
             style: ElevatedButton.styleFrom(
-              backgroundColor: const Color(0xFF88C0D0),
+              backgroundColor: const Color(0xFFFFFFFF),
               foregroundColor: Colors.black,
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
             ),
@@ -733,7 +733,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
     showDialog(
       context: context,
       builder: (ctx) => AlertDialog(
-        backgroundColor: const Color(0x0DFFFFFF),
+        backgroundColor: const Color(0xFF1C1C1E),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         title: Row(
           children: [
@@ -741,7 +741,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
             const SizedBox(width: 10),
             Expanded(
               child: Text('Numaralar Engellendi!',
-                  style: GoogleFonts.inter(color: Colors.white, fontWeight: FontWeight.bold)),
+                  style: GoogleFonts.oswald(color: Colors.white, fontWeight: FontWeight.bold)),
             ),
           ],
         ),
@@ -762,7 +762,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                   const SizedBox(width: 8),
                   Expanded(
                     child: Text('$count numara başarıyla engellendi.',
-                        style: GoogleFonts.inter(color: Colors.greenAccent)),
+                        style: GoogleFonts.oswald(color: Colors.greenAccent)),
                   ),
                 ],
               ),
@@ -770,19 +770,19 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
             if (failed > 0) ...[
               const SizedBox(height: 8),
               Text('$failed numara engellenemedi (yetersiz izin).',
-                  style: GoogleFonts.inter(color: Colors.white54, fontSize: 12)),
+                  style: GoogleFonts.oswald(color: Colors.white54, fontSize: 12)),
             ],
             const SizedBox(height: 12),
             Text(
               'Bu numaralar artık "Numaraları ve spam\'i engelle → Numaraları engelle" ekranında görünecek.',
-              style: GoogleFonts.inter(color: Colors.white70, fontSize: 13),
+              style: GoogleFonts.oswald(color: Colors.white70, fontSize: 13),
             ),
             const SizedBox(height: 20),
             ElevatedButton.icon(
               onPressed: () => _deleteSpamMessages(ctx),
               icon: const Icon(Icons.delete_forever, size: 18),
               label: Text('Tüm Spam Mesajları Sil',
-                  style: GoogleFonts.inter(fontWeight: FontWeight.bold, fontSize: 13)),
+                  style: GoogleFonts.oswald(fontWeight: FontWeight.bold, fontSize: 13)),
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.red.shade800,
                 foregroundColor: Colors.white,
@@ -798,9 +798,9 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
               },
               icon: const Icon(Icons.settings, size: 18),
               label: Text('Varsayılan Mesaj Uygulamasını Seç',
-                  style: GoogleFonts.inter(fontWeight: FontWeight.bold, fontSize: 13)),
+                  style: GoogleFonts.oswald(fontWeight: FontWeight.bold, fontSize: 13)),
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFF88C0D0),
+                backgroundColor: const Color(0xFFFFFFFF),
                 foregroundColor: Colors.black,
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                 padding: const EdgeInsets.symmetric(vertical: 12),
@@ -811,7 +811,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(ctx),
-            child: Text('Kapat', style: GoogleFonts.inter(color: Colors.white54)),
+            child: Text('Kapat', style: GoogleFonts.oswald(color: Colors.white54)),
           ),
         ],
       ),
@@ -822,7 +822,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
     showDialog(
       context: context,
       builder: (ctx) => AlertDialog(
-        backgroundColor: const Color(0x0DFFFFFF),
+        backgroundColor: const Color(0xFF1C1C1E),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         title: Row(
           children: [
@@ -830,7 +830,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
             const SizedBox(width: 10),
             Text(
               'Dosya Kaydedildi!',
-              style: GoogleFonts.inter(color: Colors.white, fontWeight: FontWeight.bold),
+              style: GoogleFonts.oswald(color: Colors.white, fontWeight: FontWeight.bold),
             ),
           ],
         ),
@@ -842,7 +842,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
               Container(
                 padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
-                  color: Color(0x0DFFFFFF),
+                  color: Color(0xFF1C1C1E),
                   borderRadius: BorderRadius.circular(12),
                   border: Border.all(color: Colors.greenAccent.withValues(alpha: 0.3)),
                 ),
@@ -853,7 +853,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                     Expanded(
                       child: Text(
                         filePath,
-                        style: GoogleFonts.inter(color: Colors.greenAccent, fontSize: 13),
+                        style: GoogleFonts.oswald(color: Colors.greenAccent, fontSize: 13),
                       ),
                     ),
                   ],
@@ -862,12 +862,12 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
               const SizedBox(height: 8),
               Text(
                 '$count numara dışa aktarıldı.',
-                style: GoogleFonts.inter(color: Colors.white70, fontSize: 13),
+                style: GoogleFonts.oswald(color: Colors.white70, fontSize: 13),
               ),
               const SizedBox(height: 16),
               Text(
                 'Samsung Messages\'a nasıl eklersin?',
-                style: GoogleFonts.inter(color: const Color(0xFF88C0D0), fontWeight: FontWeight.bold, fontSize: 14),
+                style: GoogleFonts.oswald(color: const Color(0xFFFFFFFF), fontWeight: FontWeight.bold, fontSize: 14),
               ),
               const SizedBox(height: 12),
               _buildStep('1', 'Samsung Messages uygulamasını aç'),
@@ -882,7 +882,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(ctx),
-            child: Text('Anladım', style: GoogleFonts.inter(color: const Color(0xFF88C0D0))),
+            child: Text('Anladım', style: GoogleFonts.oswald(color: const Color(0xFFFFFFFF))),
           ),
         ],
       ),
@@ -899,17 +899,17 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
             width: 24,
             height: 24,
             decoration: BoxDecoration(
-              color: Color(0xFF88C0D0).withValues(alpha: 0.2),
+              color: Color(0xFFFFFFFF).withValues(alpha: 0.2),
               shape: BoxShape.circle,
-              border: Border.all(color: const Color(0xFF88C0D0)),
+              border: Border.all(color: const Color(0x1AFFFFFF)),
             ),
             child: Center(
-              child: Text(num, style: GoogleFonts.inter(color: const Color(0xFF88C0D0), fontSize: 12, fontWeight: FontWeight.bold)),
+              child: Text(num, style: GoogleFonts.oswald(color: const Color(0xFFFFFFFF), fontSize: 12, fontWeight: FontWeight.bold)),
             ),
           ),
           const SizedBox(width: 10),
           Expanded(
-            child: Text(text, style: GoogleFonts.inter(color: Colors.white70, fontSize: 13)),
+            child: Text(text, style: GoogleFonts.oswald(color: Colors.white70, fontSize: 13)),
           ),
         ],
       ),
@@ -962,10 +962,10 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
           margin: const EdgeInsets.only(bottom: 12),
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
-            color: bgColor ?? Color(0x0DFFFFFF),
+            color: bgColor ?? Color(0xFF1C1C1E),
             borderRadius: BorderRadius.circular(16),
             border: Border.all(
-              color: borderColor ?? Color(0x26FFFFFF),
+              color: borderColor ?? Color(0xFFFFFFFF),
               width: 1.5,
             ),
             boxShadow: [
@@ -1012,7 +1012,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
           const SizedBox(width: 6),
           Text(
             label,
-            style: GoogleFonts.inter(
+            style: GoogleFonts.oswald(
               fontSize: 12,
               color: textColor,
               fontWeight: FontWeight.w600,
@@ -1035,7 +1035,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
             if (!isNested)
               Text(
                 msg.address ?? 'Bilinmeyen',
-                style: GoogleFonts.inter(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.white),
+                style: GoogleFonts.oswald(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.white),
               ),
             Text(
               "${msg.date?.toLocal()}".split('.')[0],
@@ -1058,9 +1058,9 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                 icon: const Icon(Icons.security, size: 16),
                 label: const Text('Tara'),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0x26FFFFFF),
-                  foregroundColor: const Color(0xFF88C0D0),
-                  side: const BorderSide(color: Color(0xFF88C0D0)),
+                  backgroundColor: Color(0xFFFFFFFF),
+                  foregroundColor: const Color(0xFFFFFFFF),
+                  side: const BorderSide(color: Color(0xFFFFFFFF)),
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
                 ),
               ),
@@ -1084,9 +1084,9 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Color(0x0DFFFFFF),
+        color: Color(0xFF1C1C1E),
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: Color(0xFF88C0D0).withValues(alpha: 0.3)),
+        border: Border.all(color: Color(0x1AFFFFFF).withValues(alpha: 0.3)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -1096,7 +1096,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
             children: [
               Text(
                 'Taranıyor: $_scanProgress / $total',
-                style: GoogleFonts.inter(color: const Color(0xFF88C0D0), fontWeight: FontWeight.w600),
+                style: GoogleFonts.oswald(color: const Color(0xFFFFFFFF), fontWeight: FontWeight.w600),
               ),
               TextButton(
                 onPressed: _cancelScan,
@@ -1109,8 +1109,8 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
             borderRadius: BorderRadius.circular(8),
             child: LinearProgressIndicator(
               value: progress,
-              backgroundColor: Color(0x26FFFFFF),
-              color: const Color(0xFF88C0D0),
+              backgroundColor: Color(0xFFFFFFFF),
+              color: const Color(0xFFFFFFFF),
               minHeight: 8,
             ),
           ),
@@ -1131,7 +1131,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
           end: Alignment.bottomRight,
           colors: [
             Color(0xFF0F172A),
-            Color(0x0DFFFFFF),
+            Color(0xFF1C1C1E),
             Color(0xFF000000),
           ],
         ),
@@ -1151,7 +1151,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
               const SizedBox(width: 10),
               Text(
                 'SMS Security',
-                style: GoogleFonts.inter(fontWeight: FontWeight.w700, letterSpacing: 1.2),
+                style: GoogleFonts.oswald(fontWeight: FontWeight.w700, letterSpacing: 1.2),
               ),
             ],
           ),
@@ -1159,8 +1159,8 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
           elevation: 0,
           bottom: TabBar(
             controller: _tabController,
-            indicatorColor: const Color(0xFF88C0D0),
-            labelColor: const Color(0xFF88C0D0),
+            indicatorColor: const Color(0xFFFFFFFF),
+            labelColor: const Color(0xFFFFFFFF),
             unselectedLabelColor: Colors.white54,
             tabs: [
               Tab(icon: const Icon(Icons.inbox), text: "Gelen Kutusu (${safeEntries.length})"),
@@ -1193,17 +1193,17 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                 child: Container(
                   padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                   decoration: BoxDecoration(
-                    color: Color(0x0DFFFFFF),
-                    border: Border(bottom: BorderSide(color: Color(0x26FFFFFF))),
+                    color: Color(0xFF1C1C1E),
+                    border: Border(bottom: BorderSide(color: Color(0xFFFFFFFF))),
                   ),
                   child: Row(
                     children: [
-                      const Icon(Icons.wifi, color: Color(0xFF88C0D0)),
+                      const Icon(Icons.wifi, color: Color(0xFFFFFFFF)),
                       const SizedBox(width: 12),
                       Expanded(
                         child: TextField(
                           controller: _ipController,
-                          style: GoogleFonts.inter(color: Colors.white, fontWeight: FontWeight.w500),
+                          style: GoogleFonts.oswald(color: Colors.white, fontWeight: FontWeight.w500),
                           decoration: const InputDecoration(
                             labelText: "API IP Adresi",
                             border: InputBorder.none,
@@ -1217,16 +1217,16 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                       _isScanning
                           ? const SizedBox(
                               width: 20, height: 20,
-                              child: CircularProgressIndicator(strokeWidth: 2, color: Color(0xFF88C0D0)),
+                              child: CircularProgressIndicator(strokeWidth: 2, color: Color(0xFFFFFFFF)),
                             )
                           : ElevatedButton.icon(
                               onPressed: _isLoadingInbox ? null : _scanAllMessages,
                               icon: const Icon(Icons.radar, size: 16),
                               label: const Text('Tümünü Tara'),
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: Color(0xFF88C0D0).withValues(alpha: 0.15),
-                                foregroundColor: const Color(0xFF88C0D0),
-                                side: const BorderSide(color: Color(0xFF88C0D0)),
+                                backgroundColor: Color(0xFFFFFFFF).withValues(alpha: 0.15),
+                                foregroundColor: const Color(0xFFFFFFFF),
+                                side: const BorderSide(color: Color(0xFFFFFFFF)),
                                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
                                 padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                               ),
@@ -1246,7 +1246,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                 children: [
                   // ── TAB 1: Gelen Kutusu (spam olmayanlar) ──
                   _isLoadingInbox
-                      ? const Center(child: CircularProgressIndicator(color: Color(0xFF88C0D0)))
+                      ? const Center(child: CircularProgressIndicator(color: Color(0xFFFFFFFF)))
                       : safeEntries.isEmpty
                           ? Center(
                               child: Text(
@@ -1254,7 +1254,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                                     ? 'Mesaj yok veya izin verilmedi.'
                                     : '🎉 Tüm mesajlar temiz!\nSpam tespit edilmedi.',
                                 textAlign: TextAlign.center,
-                                style: GoogleFonts.inter(color: Colors.white54, fontSize: 16),
+                                style: GoogleFonts.oswald(color: Colors.white54, fontSize: 16),
                               ),
                             )
                           : Builder(
@@ -1274,12 +1274,12 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                                           tilePadding: EdgeInsets.zero,
                                           title: Row(
                                             children: [
-                                              const Icon(Icons.person, color: Color(0xFF88C0D0)),
+                                              const Icon(Icons.person, color: Color(0xFFFFFFFF)),
                                               const SizedBox(width: 8),
                                               Expanded(
                                                 child: Text(
                                                   "$sender (${messages.length} Mesaj)",
-                                                  style: GoogleFonts.inter(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.white),
+                                                  style: GoogleFonts.oswald(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.white),
                                                 ),
                                               ),
                                             ],
@@ -1306,7 +1306,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                               Text(
                                 'Spam kutusu boş!\nTümünü Tara butonuna bas.',
                                 textAlign: TextAlign.center,
-                                style: GoogleFonts.inter(color: Colors.white54, fontSize: 16),
+                                style: GoogleFonts.oswald(color: Colors.white54, fontSize: 16),
                               ),
                             ],
                           ),
@@ -1323,7 +1323,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                                   icon: const Icon(Icons.block, size: 18),
                                   label: Text(
                                     'Tüm Spam Numaralarını Engelle (${spamEntries.length})',
-                                    style: GoogleFonts.inter(fontWeight: FontWeight.w600),
+                                    style: GoogleFonts.oswald(fontWeight: FontWeight.w600),
                                   ),
                                   style: ElevatedButton.styleFrom(
                                     backgroundColor: Colors.red.shade900,
@@ -1360,7 +1360,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                                                 Expanded(
                                                   child: Text(
                                                     "$sender (${messages.length} Mesaj)",
-                                                    style: GoogleFonts.inter(
+                                                    style: GoogleFonts.oswald(
                                                       fontWeight: FontWeight.bold, fontSize: 16, color: Colors.redAccent,
                                                     ),
                                                   ),
@@ -1392,7 +1392,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                               Text(
                                 'Engellenen Numara Yok',
                                 textAlign: TextAlign.center,
-                                style: GoogleFonts.inter(color: Colors.white54, fontSize: 16),
+                                style: GoogleFonts.oswald(color: Colors.white54, fontSize: 16),
                               ),
                               const SizedBox(height: 20),
                               ElevatedButton.icon(
@@ -1400,7 +1400,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                                 icon: const Icon(Icons.refresh),
                                 label: const Text('Listeyi Yenile'),
                                 style: ElevatedButton.styleFrom(
-                                  backgroundColor: Color(0x26FFFFFF),
+                                  backgroundColor: Color(0xFFFFFFFF),
                                   foregroundColor: Colors.white,
                                 ),
                               ),
@@ -1416,11 +1416,11 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                                 children: [
                                   Text(
                                     'Toplam ${_blockedNumbers.length} numara engelli',
-                                    style: GoogleFonts.inter(color: Colors.white70, fontSize: 14),
+                                    style: GoogleFonts.oswald(color: Colors.white70, fontSize: 14),
                                   ),
                                   IconButton(
                                     onPressed: _loadBlockedNumbers,
-                                    icon: const Icon(Icons.refresh, color: Color(0xFF88C0D0)),
+                                    icon: const Icon(Icons.refresh, color: Color(0xFFFFFFFF)),
                                     tooltip: 'Listeyi Yenile',
                                   ),
                                 ],
@@ -1433,7 +1433,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                                 itemBuilder: (context, i) {
                                   final number = _blockedNumbers[i];
                                   return _buildGlassmorphismCard(
-                                    bgColor: const Color(0x0DFFFFFF),
+                                    bgColor: const Color(0xFF1C1C1E),
                                     borderColor: Colors.redAccent.withValues(alpha: 0.3),
                                     child: Row(
                                       children: [
@@ -1445,7 +1445,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                                             children: [
                                               Text(
                                                 number,
-                                                style: GoogleFonts.inter(
+                                                style: GoogleFonts.oswald(
                                                     fontWeight: FontWeight.bold, fontSize: 16, color: Colors.white),
                                               ),
                                               const SizedBox(height: 4),
@@ -1490,14 +1490,14 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                                       ? 'Google Spam Kutusu Boş'
                                       : 'Spam Mesajları Göremiyoruz',
                                   textAlign: TextAlign.center,
-                                  style: GoogleFonts.inter(color: Colors.white54, fontSize: 16, fontWeight: FontWeight.bold),
+                                  style: GoogleFonts.oswald(color: Colors.white54, fontSize: 16, fontWeight: FontWeight.bold),
                                 ),
                                 const SizedBox(height: 12),
                                 Container(
                                   margin: const EdgeInsets.symmetric(horizontal: 32),
                                   padding: const EdgeInsets.all(16),
                                   decoration: BoxDecoration(
-                                    color: Color(0x0DFFFFFF),
+                                    color: Color(0xFF1C1C1E),
                                     borderRadius: BorderRadius.circular(16),
                                     border: Border.all(color: Colors.orange.withValues(alpha: 0.3)),
                                   ),
@@ -1506,7 +1506,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                                         ? 'Uygulama varsayılan SMS uygulaması olarak ayarlı ancak gizli spam mesaj bulunamadı. Google Mesajlar spam mesajlarını kendi özel veritabanında saklıyor olabilir.'
                                         : 'Google Mesajlar, spam olarak işaretlediği mesajları kendi özel veritabanında saklar. Bu mesajları görebilmek için SMS Security\'nin geçici olarak varsayılan SMS uygulaması olması gerekir.',
                                     textAlign: TextAlign.center,
-                                    style: GoogleFonts.inter(color: Colors.white38, fontSize: 13),
+                                    style: GoogleFonts.oswald(color: Colors.white38, fontSize: 13),
                                   ),
                                 ),
                                 const SizedBox(height: 20),
@@ -1521,9 +1521,9 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                                     icon: const Icon(Icons.settings, size: 18),
                                     label: const Text('Varsayılan SMS Uygulaması Yap'),
                                     style: ElevatedButton.styleFrom(
-                                      backgroundColor: Color(0xFF88C0D0).withValues(alpha: 0.2),
-                                      foregroundColor: const Color(0xFF88C0D0),
-                                      side: const BorderSide(color: Color(0xFF88C0D0)),
+                                      backgroundColor: Color(0xFFFFFFFF).withValues(alpha: 0.2),
+                                      foregroundColor: const Color(0xFFFFFFFF),
+                                      side: const BorderSide(color: Color(0xFFFFFFFF)),
                                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                                       padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
                                     ),
@@ -1534,7 +1534,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                                     icon: const Icon(Icons.refresh, size: 18),
                                     label: const Text('Yeniden Tara'),
                                     style: ElevatedButton.styleFrom(
-                                      backgroundColor: Color(0x26FFFFFF),
+                                      backgroundColor: Color(0xFFFFFFFF),
                                       foregroundColor: Colors.white,
                                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                                       padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
@@ -1545,12 +1545,12 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                                   onPressed: _debugSmsTypes,
                                   icon: const Icon(Icons.bug_report, size: 16, color: Colors.white38),
                                   label: Text('SMS Veritabanı Bilgisi',
-                                      style: GoogleFonts.inter(color: Colors.white38, fontSize: 12)),
+                                      style: GoogleFonts.oswald(color: Colors.white38, fontSize: 12)),
                                 ),
                                 const SizedBox(height: 8),
                                 Text(
                                   _isDefaultSmsApp ? '✅ Varsayılan SMS Uygulaması' : '❌ Varsayılan SMS Uygulaması Değil',
-                                  style: GoogleFonts.inter(
+                                  style: GoogleFonts.oswald(
                                     color: _isDefaultSmsApp ? Colors.greenAccent : Colors.redAccent,
                                     fontSize: 12,
                                   ),
@@ -1570,8 +1570,8 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                                 final sender = senders[i];
                                 final messages = groupedSpam[sender]!;
                                 return _buildGlassmorphismCard(
-                                  bgColor: Color(0x0DFFFFFF),
-                                  borderColor: Color(0x26FFFFFF),
+                                  bgColor: Color(0xFF1C1C1E),
+                                  borderColor: Color(0xFFFFFFFF),
                                   child: Theme(
                                     data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
                                     child: ExpansionTile(
@@ -1583,7 +1583,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                                           Expanded(
                                             child: Text(
                                               "$sender (${messages.length} Mesaj)",
-                                              style: GoogleFonts.inter(
+                                              style: GoogleFonts.oswald(
                                                 fontWeight: FontWeight.bold, fontSize: 16, color: Colors.orangeAccent,
                                               ),
                                             ),
@@ -1607,7 +1607,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                                               border: Border.all(
                                                 color: isScanned
                                                     ? (isSpam ? Colors.redAccent : Colors.greenAccent)
-                                                    : Color(0x0DFFFFFF),
+                                                    : Color(0xFF1C1C1E),
                                               ),
                                             ),
                                             child: Column(
@@ -1642,8 +1642,8 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                                                         icon: const Icon(Icons.radar, size: 16),
                                                         label: const Text('Tara'),
                                                         style: ElevatedButton.styleFrom(
-                                                          backgroundColor: Color(0xFF88C0D0).withValues(alpha: 0.15),
-                                                          foregroundColor: const Color(0xFF88C0D0),
+                                                          backgroundColor: Color(0xFFFFFFFF).withValues(alpha: 0.15),
+                                                          foregroundColor: const Color(0xFFFFFFFF),
                                                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                                                           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                                                         ),
@@ -1665,7 +1665,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                                                               Expanded(
                                                                 child: Text(
                                                                   'Google mesajlarda spam olarak gözüken mesaj aslında spam değil.',
-                                                                  style: GoogleFonts.inter(color: Colors.greenAccent, fontSize: 12),
+                                                                  style: GoogleFonts.oswald(color: Colors.greenAccent, fontSize: 12),
                                                                 ),
                                                               ),
                                                             ],
@@ -1700,14 +1700,14 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                             labelText: 'Gönderen (Örn: THY, 0532...)',
                             labelStyle: const TextStyle(color: Colors.white54),
                             filled: true,
-                            fillColor: Color(0x0DFFFFFF),
+                            fillColor: Color(0xFF1C1C1E),
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
-                              borderSide: BorderSide(color: Color(0x26FFFFFF)),
+                              borderSide: BorderSide(color: Color(0xFFFFFFFF)),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
-                              borderSide: const BorderSide(color: Color(0xFF88C0D0), width: 2),
+                              borderSide: const BorderSide(color: Color(0xFFFFFFFF), width: 2),
                             ),
                           ),
                         ),
@@ -1720,14 +1720,14 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                             labelText: 'SMS Metnini Buraya Yapıştırın',
                             labelStyle: const TextStyle(color: Colors.white54),
                             filled: true,
-                            fillColor: Color(0x0DFFFFFF),
+                            fillColor: Color(0xFF1C1C1E),
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
-                              borderSide: BorderSide(color: Color(0x26FFFFFF)),
+                              borderSide: BorderSide(color: Color(0xFFFFFFFF)),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
-                              borderSide: const BorderSide(color: Color(0xFF88C0D0), width: 2),
+                              borderSide: const BorderSide(color: Color(0xFFFFFFFF), width: 2),
                             ),
                           ),
                         ),
@@ -1738,14 +1738,14 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                           child: Container(
                             decoration: BoxDecoration(
                               gradient: const LinearGradient(
-                                colors: [Color(0xFF88C0D0), Color(0xFF7000FF)],
+                                colors: [Color(0xFFFFFFFF), Color(0xFF7000FF)],
                                 begin: Alignment.centerLeft,
                                 end: Alignment.centerRight,
                               ),
                               borderRadius: BorderRadius.circular(12),
                               boxShadow: [
                                 BoxShadow(
-                                  color: Color(0xFF88C0D0).withValues(alpha: 0.3),
+                                  color: Color(0xFFFFFFFF).withValues(alpha: 0.3),
                                   blurRadius: 10,
                                   offset: const Offset(0, 4),
                                 )
@@ -1762,7 +1762,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                                   ? const CircularProgressIndicator(color: Colors.white)
                                   : Text(
                                       'Yapay Zeka ile Analiz Et',
-                                      style: GoogleFonts.inter(
+                                      style: GoogleFonts.oswald(
                                         fontSize: 16,
                                         fontWeight: FontWeight.bold,
                                         color: Colors.white,
@@ -1799,7 +1799,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                                     Expanded(
                                       child: Text(
                                         _manualPredictionResult!['sonuc'],
-                                        style: GoogleFonts.inter(
+                                        style: GoogleFonts.oswald(
                                           color: _manualPredictionResult!['etiket'] == 'spam'
                                               ? Colors.redAccent
                                               : Colors.greenAccent,
@@ -1816,7 +1816,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                                       ),
                                       child: Text(
                                         "Güven: ${_manualPredictionResult!['guven']}",
-                                        style: GoogleFonts.inter(fontSize: 12, color: Colors.white),
+                                        style: GoogleFonts.oswald(fontSize: 12, color: Colors.white),
                                       ),
                                     ),
                                   ],
