@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+dist/
+build/
+*.egg
+.eggs/
+venv/
+env/
+.venv/
+
+# Model dosyaları (büyük olabilir)
+# models/*.pkl
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Flutter
+smishing_app/.dart_tool/
+smishing_app/.packages
+smishing_app/build/
+smishing_app/.flutter-plugins
+smishing_app/.flutter-plugins-dependencies
+smishing_app/android/.gradle/
+smishing_app/android/app/build/
+smishing_app/android/build/
+smishing_app/android/local.properties
+smishing_app/.idea/
+*.iml
+
+# Logs
+*.log
+train_output.txt
+
+# Test files
+test message.txt
