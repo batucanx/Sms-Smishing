@@ -65,11 +65,10 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      body: Center(
+      body: SizedBox.expand(
         child: Image.asset(
           'assets/logo.gif',
-          width: 300,
-          fit: BoxFit.contain,
+          fit: BoxFit.cover,
         ),
       ),
     );
@@ -1125,20 +1124,9 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
         backgroundColor: Colors.transparent,
         appBar: AppBar(
           centerTitle: true,
-          title: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Image.asset(
-                'assets/logo.gif',
-                height: 38,
-                fit: BoxFit.contain,
-              ),
-              const SizedBox(width: 10),
-              Text(
-                'SMS Security',
-                style: GoogleFonts.oswald(fontWeight: FontWeight.w700, letterSpacing: 1.2),
-              ),
-            ],
+          title: Text(
+            'SMS Security',
+            style: GoogleFonts.oswald(fontWeight: FontWeight.w700, letterSpacing: 1.2),
           ),
           backgroundColor: Colors.transparent,
           elevation: 0,
