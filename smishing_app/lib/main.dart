@@ -206,7 +206,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
         showDialog(
           context: context,
           builder: (ctx) => AlertDialog(
-            backgroundColor: const Colors.white.withValues(alpha: 0.05),
+            backgroundColor: const Color(0x0DFFFFFF),
             title: Text('SMS Debug', style: GoogleFonts.inter(color: Colors.white)),
             content: SizedBox(
               width: double.maxFinite,
@@ -412,7 +412,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
     final bool? shouldContinue = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
-        backgroundColor: const Colors.white.withValues(alpha: 0.05),
+        backgroundColor: const Color(0x0DFFFFFF),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         title: Row(
           children: [
@@ -436,7 +436,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
           ElevatedButton(
             onPressed: () => Navigator.pop(ctx, true),
             style: ElevatedButton.styleFrom(
-              backgroundColor: const Color(0xFF88C0D0).withValues(alpha: 0.2),
+              backgroundColor: Color(0xFF88C0D0).withValues(alpha: 0.2),
               foregroundColor: const Color(0xFF88C0D0),
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
             ),
@@ -544,7 +544,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
       context: context,
       barrierDismissible: false,
       builder: (ctx) => AlertDialog(
-        backgroundColor: const Colors.white.withValues(alpha: 0.05),
+        backgroundColor: const Color(0x0DFFFFFF),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         content: Column(
           mainAxisSize: MainAxisSize.min,
@@ -595,7 +595,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
     showDialog(
       context: context,
       builder: (ctx) => AlertDialog(
-        backgroundColor: const Colors.white.withValues(alpha: 0.05),
+        backgroundColor: const Color(0x0DFFFFFF),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         title: Row(
           children: [
@@ -733,7 +733,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
     showDialog(
       context: context,
       builder: (ctx) => AlertDialog(
-        backgroundColor: const Colors.white.withValues(alpha: 0.05),
+        backgroundColor: const Color(0x0DFFFFFF),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         title: Row(
           children: [
@@ -822,7 +822,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
     showDialog(
       context: context,
       builder: (ctx) => AlertDialog(
-        backgroundColor: const Colors.white.withValues(alpha: 0.05),
+        backgroundColor: const Color(0x0DFFFFFF),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         title: Row(
           children: [
@@ -842,7 +842,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
               Container(
                 padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
-                  color: Colors.white.withValues(alpha: 0.05),
+                  color: Color(0x0DFFFFFF),
                   borderRadius: BorderRadius.circular(12),
                   border: Border.all(color: Colors.greenAccent.withValues(alpha: 0.3)),
                 ),
@@ -899,7 +899,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
             width: 24,
             height: 24,
             decoration: BoxDecoration(
-              color: const Color(0xFF88C0D0).withValues(alpha: 0.2),
+              color: Color(0xFF88C0D0).withValues(alpha: 0.2),
               shape: BoxShape.circle,
               border: Border.all(color: const Color(0xFF88C0D0)),
             ),
@@ -962,10 +962,10 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
           margin: const EdgeInsets.only(bottom: 12),
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
-            color: bgColor ?? Colors.white.withValues(alpha: 0.05),
+            color: bgColor ?? Color(0x0DFFFFFF),
             borderRadius: BorderRadius.circular(16),
             border: Border.all(
-              color: borderColor ?? Colors.white.withValues(alpha: 0.15),
+              color: borderColor ?? Color(0x26FFFFFF),
               width: 1.5,
             ),
             boxShadow: [
@@ -1058,7 +1058,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                 icon: const Icon(Icons.security, size: 16),
                 label: const Text('Tara'),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.white.withValues(alpha: 0.15),
+                  backgroundColor: Color(0x26FFFFFF),
                   foregroundColor: const Color(0xFF88C0D0),
                   side: const BorderSide(color: Color(0xFF88C0D0)),
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
@@ -1084,9 +1084,9 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white.withValues(alpha: 0.05),
+        color: Color(0x0DFFFFFF),
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: const Color(0xFF88C0D0).withValues(alpha: 0.3)),
+        border: Border.all(color: Color(0xFF88C0D0).withValues(alpha: 0.3)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -1109,7 +1109,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
             borderRadius: BorderRadius.circular(8),
             child: LinearProgressIndicator(
               value: progress,
-              backgroundColor: Colors.white.withValues(alpha: 0.15),
+              backgroundColor: Color(0x26FFFFFF),
               color: const Color(0xFF88C0D0),
               minHeight: 8,
             ),
@@ -1131,7 +1131,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
           end: Alignment.bottomRight,
           colors: [
             Color(0xFF0F172A),
-            Colors.white.withValues(alpha: 0.05),
+            Color(0x0DFFFFFF),
             Color(0xFF000000),
           ],
         ),
@@ -1193,8 +1193,8 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                 child: Container(
                   padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                   decoration: BoxDecoration(
-                    color: Colors.white.withValues(alpha: 0.05),
-                    border: Border(bottom: BorderSide(color: Colors.white.withValues(alpha: 0.15))),
+                    color: Color(0x0DFFFFFF),
+                    border: Border(bottom: BorderSide(color: Color(0x26FFFFFF))),
                   ),
                   child: Row(
                     children: [
@@ -1224,7 +1224,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                               icon: const Icon(Icons.radar, size: 16),
                               label: const Text('Tümünü Tara'),
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: const Color(0xFF88C0D0).withValues(alpha: 0.15),
+                                backgroundColor: Color(0xFF88C0D0).withValues(alpha: 0.15),
                                 foregroundColor: const Color(0xFF88C0D0),
                                 side: const BorderSide(color: Color(0xFF88C0D0)),
                                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
@@ -1347,7 +1347,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                                       final sender = senders[i];
                                       final messages = groupedSpam[sender]!;
                                       return _buildGlassmorphismCard(
-                                        bgColor: const Color(0xFF450a0a).withValues(alpha: 0.4),
+                                        bgColor: Color(0xFF450a0a).withValues(alpha: 0.4),
                                         borderColor: Colors.redAccent.withValues(alpha: 0.6),
                                         child: Theme(
                                           data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
@@ -1400,7 +1400,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                                 icon: const Icon(Icons.refresh),
                                 label: const Text('Listeyi Yenile'),
                                 style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.white.withValues(alpha: 0.15),
+                                  backgroundColor: Color(0x26FFFFFF),
                                   foregroundColor: Colors.white,
                                 ),
                               ),
@@ -1433,7 +1433,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                                 itemBuilder: (context, i) {
                                   final number = _blockedNumbers[i];
                                   return _buildGlassmorphismCard(
-                                    bgColor: const Colors.white.withValues(alpha: 0.05).withValues(alpha: 0.5),
+                                    bgColor: const Color(0x0DFFFFFF),
                                     borderColor: Colors.redAccent.withValues(alpha: 0.3),
                                     child: Row(
                                       children: [
@@ -1497,7 +1497,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                                   margin: const EdgeInsets.symmetric(horizontal: 32),
                                   padding: const EdgeInsets.all(16),
                                   decoration: BoxDecoration(
-                                    color: Colors.white.withValues(alpha: 0.05),
+                                    color: Color(0x0DFFFFFF),
                                     borderRadius: BorderRadius.circular(16),
                                     border: Border.all(color: Colors.orange.withValues(alpha: 0.3)),
                                   ),
@@ -1521,7 +1521,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                                     icon: const Icon(Icons.settings, size: 18),
                                     label: const Text('Varsayılan SMS Uygulaması Yap'),
                                     style: ElevatedButton.styleFrom(
-                                      backgroundColor: const Color(0xFF88C0D0).withValues(alpha: 0.2),
+                                      backgroundColor: Color(0xFF88C0D0).withValues(alpha: 0.2),
                                       foregroundColor: const Color(0xFF88C0D0),
                                       side: const BorderSide(color: Color(0xFF88C0D0)),
                                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
@@ -1534,7 +1534,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                                     icon: const Icon(Icons.refresh, size: 18),
                                     label: const Text('Yeniden Tara'),
                                     style: ElevatedButton.styleFrom(
-                                      backgroundColor: Colors.white.withValues(alpha: 0.15),
+                                      backgroundColor: Color(0x26FFFFFF),
                                       foregroundColor: Colors.white,
                                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                                       padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
@@ -1570,8 +1570,8 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                                 final sender = senders[i];
                                 final messages = groupedSpam[sender]!;
                                 return _buildGlassmorphismCard(
-                                  bgColor: Colors.white.withValues(alpha: 0.05),
-                                  borderColor: Colors.white.withValues(alpha: 0.15),
+                                  bgColor: Color(0x0DFFFFFF),
+                                  borderColor: Color(0x26FFFFFF),
                                   child: Theme(
                                     data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
                                     child: ExpansionTile(
@@ -1601,13 +1601,13 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                                             padding: const EdgeInsets.all(12),
                                             decoration: BoxDecoration(
                                               color: isScanned
-                                                  ? (isSpam ? const Color(0xFF450a0a).withValues(alpha: 0.5) : const Color(0xFF064e3b).withValues(alpha: 0.5))
+                                                  ? (isSpam ? Color(0xFF450a0a).withValues(alpha: 0.5) : Color(0xFF064e3b).withValues(alpha: 0.5))
                                                   : Colors.black.withValues(alpha: 0.2),
                                               borderRadius: BorderRadius.circular(12),
                                               border: Border.all(
                                                 color: isScanned
                                                     ? (isSpam ? Colors.redAccent : Colors.greenAccent)
-                                                    : Colors.white.withValues(alpha: 0.05),
+                                                    : Color(0x0DFFFFFF),
                                               ),
                                             ),
                                             child: Column(
@@ -1642,7 +1642,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                                                         icon: const Icon(Icons.radar, size: 16),
                                                         label: const Text('Tara'),
                                                         style: ElevatedButton.styleFrom(
-                                                          backgroundColor: const Color(0xFF88C0D0).withValues(alpha: 0.15),
+                                                          backgroundColor: Color(0xFF88C0D0).withValues(alpha: 0.15),
                                                           foregroundColor: const Color(0xFF88C0D0),
                                                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                                                           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
@@ -1700,10 +1700,10 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                             labelText: 'Gönderen (Örn: THY, 0532...)',
                             labelStyle: const TextStyle(color: Colors.white54),
                             filled: true,
-                            fillColor: Colors.white.withValues(alpha: 0.05),
+                            fillColor: Color(0x0DFFFFFF),
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
-                              borderSide: BorderSide(color: Colors.white.withValues(alpha: 0.15)),
+                              borderSide: BorderSide(color: Color(0x26FFFFFF)),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
@@ -1720,10 +1720,10 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                             labelText: 'SMS Metnini Buraya Yapıştırın',
                             labelStyle: const TextStyle(color: Colors.white54),
                             filled: true,
-                            fillColor: Colors.white.withValues(alpha: 0.05),
+                            fillColor: Color(0x0DFFFFFF),
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
-                              borderSide: BorderSide(color: Colors.white.withValues(alpha: 0.15)),
+                              borderSide: BorderSide(color: Color(0x26FFFFFF)),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
@@ -1745,7 +1745,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                               borderRadius: BorderRadius.circular(12),
                               boxShadow: [
                                 BoxShadow(
-                                  color: const Color(0xFF88C0D0).withValues(alpha: 0.3),
+                                  color: Color(0xFF88C0D0).withValues(alpha: 0.3),
                                   blurRadius: 10,
                                   offset: const Offset(0, 4),
                                 )
@@ -1776,8 +1776,8 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                         if (_manualPredictionResult != null) ...[
                           _buildGlassmorphismCard(
                             bgColor: _manualPredictionResult!['etiket'] == 'spam'
-                                ? const Color(0xFF450a0a).withValues(alpha: 0.5)
-                                : const Color(0xFF064e3b).withValues(alpha: 0.5),
+                                ? Color(0xFF450a0a).withValues(alpha: 0.5)
+                                : Color(0xFF064e3b).withValues(alpha: 0.5),
                             borderColor: _manualPredictionResult!['etiket'] == 'spam'
                                 ? Colors.redAccent
                                 : Colors.greenAccent,
