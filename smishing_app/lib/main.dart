@@ -166,6 +166,30 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
       debugPrint("Sistem spam mesajları alınamadı: \$e");
     }
   }
+
+  Future<void> _sendTestNotification() async {
+    const AndroidNotificationDetails androidNotificationDetails = AndroidNotificationDetails(
+      'spam_test_channel_id',
+      'Spam Tarama Testi',
+      channelDescription: 'Bu kanal test bildirimleri içindir.',
+      importance: Importance.max,
+      priority: Priority.high,
+    );
+    const NotificationDetails notificationDetails = NotificationDetails(android: androidNotificationDetails);
+    
+    await flutterLocalNotificationsPlugin.show(
+      0,
+      'SMS Security',
+      'Zararlı mesajlarınız birikmiş olabilir. Tarama yapmak ister misiniz?',
+      notificationDetails,
+    );
+    
+    if (mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Test bildirimi gönderildi! Lütfen bildirim çubuğunu kontrol edin.'), backgroundColor: Color(0xFF1C1C1E)),
+      );
+    }
+  }
   Future<void> _debugSmsTypes() async {
     try {
       final String? result = await _platform.invokeMethod<String>('debugSmsTypes');
@@ -1153,6 +1177,12 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                         ),
                       ),
                       const SizedBox(width: 8),
+                      IconButton(
+                        onPressed: _sendTestNotification,
+                        icon: const Icon(Icons.notifications_active, color: Color(0xFFFFFFFF)),
+                        tooltip: 'Test Bildirimi Gönder',
+                      ),
+                      const SizedBox(width: 4),
                       // Tüm Mesajları Tara butonu
                       _isScanning
                           ? const SizedBox(
