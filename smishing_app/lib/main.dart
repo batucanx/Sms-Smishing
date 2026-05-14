@@ -302,11 +302,20 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
       return null;
     }
     try {
+      String urlString;
+      if (ip.startsWith('http')) {
+        urlString = '$ip/predict'; // Örn: https://smishing.onrender.com/predict
+      } else if (ip.contains('onrender.com')) {
+        urlString = 'https://$ip/predict'; // Kullanıcı sadece linki yapıştırırsa
+      } else {
+        urlString = 'http://$ip:8000/predict'; // Eskisi gibi lokal testler için
+      }
+
       final response = await http.post(
-        Uri.parse('http://$ip:8000/predict'),
+        Uri.parse(urlString),
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode({'message': message, 'sender': sender}),
-      ).timeout(const Duration(seconds: 5));
+      ).timeout(const Duration(seconds: 10));
 
       if (response.statusCode == 200) {
         return jsonDecode(response.body);
