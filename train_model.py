@@ -729,7 +729,13 @@ def sms_tahmin_et(mesaj: str, model_paketi: dict = None,
         'promosyon kodu', 'telegram kanal', 'haftalık kayıp', 'haftalik kayip',
         'metin2', 'pvp server', 'mt2', '1-99', '1-105', '55-250',
         'orta emek', 'zor emek', 'kolay emek', 'wslik server', 'açılıyor hemen indir',
-        'aciliyor hemen indir', 'avantajlı başla', 'avantajli basla'
+        'aciliyor hemen indir', 'avantajlı başla', 'avantajli basla',
+        'muhteşem çarpan', 'muhtesem carpan', 'gökyüzü imparatorluğu', 'gokyuzu imparatorlugu',
+        'şans denizi', 'sans denizi', 'yeni yıl sürprizi', 'yeni yil surprizi',
+        'yatırım uzmanı', 'yatirim uzmani', 'kazı kazan', 'kazi kazan',
+        'şans oyunları ödemesi', 'sans oyunu odemesi', 'sans oyunlari odemesi',
+        'milyon tl kazanma şansı', 'milyon tl kazanma sansi',
+        'çılgın sayısal loto', 'cilgin sayisal loto', 'çekiliş heyecanı', 'cekilis heyecani'
     ]
     has_kumar = any(k in mesaj.lower() for k in kumar_kelimeleri)
 
