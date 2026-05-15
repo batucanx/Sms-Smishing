@@ -738,7 +738,10 @@ def sms_tahmin_et(mesaj: str, model_paketi: dict = None,
         'çılgın sayısal loto', 'cilgin sayisal loto', 'çekiliş heyecanı', 'cekilis heyecani',
         'en yüksek oran', 'en yuksek oran', 'yüksek oranlar', 'yuksek oranlar',
         'kazançlar için', 'kazanclar icin', 'risebet', 'bet tv',
-        'akşam buluşuyoruz', 'aksam bulusuyoruz', 'tüm maçlar', 'tum maclar'
+        'akşam buluşuyoruz', 'aksam bulusuyoruz', 'tüm maçlar', 'tum maclar',
+        'usta oyuncular', 'milyonlar kazandıran', 'milyonlar kazandiran',
+        'elit ayrıcalıklar', 'elit ayricaliklar', 'siz de davetlisiniz',
+        'exon'
     ]
     has_kumar = any(k in mesaj.lower() for k in kumar_kelimeleri)
 
