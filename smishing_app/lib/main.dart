@@ -27,7 +27,7 @@ class SmishingApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'AVO SMS Security',
+      title: 'AI SMS Security',
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: Colors.transparent,
@@ -179,7 +179,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
     
     await flutterLocalNotificationsPlugin.show(
       id: 0,
-      title: 'AVO SMS Security',
+      title: 'AI SMS Security',
       body: 'Zararlı mesajlarınız birikmiş olabilir. Tarama yapmak ister misiniz?',
       notificationDetails: notificationDetails,
     );
@@ -595,13 +595,13 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                 border: Border.all(color: Colors.orange.withValues(alpha: 0.4)),
               ),
               child: Text(
-                '$numberCount spam numarayı engellemek için AVO SMS Security\'nin geçici olarak varsayılan mesaj uygulaması olması gerekiyor.',
+                '$numberCount spam numarayı engellemek için AI SMS Security\'nin geçici olarak varsayılan mesaj uygulaması olması gerekiyor.',
                 style: GoogleFonts.oswald(color: Colors.white70, fontSize: 13),
               ),
             ),
             const SizedBox(height: 16),
             _buildStep('1', '"Varsayılan Yap" butonuna bas'),
-            _buildStep('2', 'Açılan sistemin diyaloğunda "AVO SMS Security\'yi seç"'),
+            _buildStep('2', 'Açılan sistemin diyaloğunda "AI SMS Security\'yi seç"'),
             _buildStep('3', 'Uygulamaya geri dön ve tekrar "Engelle" butonuna bas'),
             _buildStep('4', 'Engelleme bittikten sonra Google Messages\'a geri dönebilirsin'),
             const SizedBox(height: 8),
@@ -683,7 +683,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
         if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text('\$number numaralı engellenen gönderici Gelen Kutusuna geri alındı!'),
+              content: Text('$number numaralı engellenen gönderici Gelen Kutusuna geri alındı!'),
               backgroundColor: Colors.green.shade700,
             ),
           );
@@ -1116,7 +1116,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
         appBar: AppBar(
           centerTitle: true,
           title: Text(
-            'AVO SMS Security',
+            'AI SMS Security',
             style: GoogleFonts.oswald(fontWeight: FontWeight.w700, letterSpacing: 1.2),
           ),
           backgroundColor: Colors.transparent,
@@ -1473,7 +1473,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                                   child: Text(
                                     _isDefaultSmsApp
                                         ? 'Uygulama varsayılan SMS uygulaması olarak ayarlı ancak gizli spam mesaj bulunamadı. Google Mesajlar spam mesajlarını kendi özel veritabanında saklıyor olabilir.'
-                                        : 'Google Mesajlar, spam olarak işaretlediği mesajları kendi özel veritabanında saklar. Bu mesajları görebilmek için AVO SMS Security\'nin geçici olarak varsayılan SMS uygulaması olması gerekir.',
+                                        : 'Google Mesajlar, spam olarak işaretlediği mesajları kendi özel veritabanında saklar. Bu mesajları görebilmek için AI SMS Security\'nin geçici olarak varsayılan SMS uygulaması olması gerekir.',
                                     textAlign: TextAlign.center,
                                     style: GoogleFonts.oswald(color: Colors.white38, fontSize: 13),
                                   ),

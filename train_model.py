@@ -232,7 +232,7 @@ def turkce_on_isleme(metin: str) -> str:
 # URL kısaltıcı servisleri
 URL_KISALTICILAR = [
     'bit.ly', 't2m.io', 'cutt.ly', 'tinyurl', 'goo.gl',
-    'ow.ly', 'is.gd', 'buff.ly', 'dub.is', 't.ly', 't.me',
+    'ow.ly', 'is.gd', 'buff.ly', 'dub.is', 'dub.sh', 't.ly', 't.me',
     'shorturl.at', 'rb.gy', 'tinyurl.com',
     'fstpy.cc', 'pshgit.co', 'clck.ru', 'tinyurl.is',
     '100havale.com', 'havale.co',
@@ -423,7 +423,8 @@ def ozellik_cikar(df: pd.DataFrame) -> np.ndarray:
         'havale yatır', 'havale yatir', 'cekim yap', 'çekim yap',
         'uye ol sartsiz', 'üye ol şartsız', 'risksiz',
         'lisansli altyapi', 'lisanslı altyapı',
-        'minimum havale', 'pronet',
+        'minimum havale', 'pronet', 'özel oran', 'ozel oran',
+        'garanti kazan', 'spin',
         # Metin2 / PvP Server tanıtımları
         'metin2', 'pvp server', 'mt2', '1-99', '1-105', '55-250',
         'orta emek', 'zor emek', 'kolay emek', 'wslik server'
@@ -727,6 +728,8 @@ def sms_tahmin_et(mesaj: str, model_paketi: dict = None,
         'hoşgeldin bonusu', 'hosgeldin bonusu', 'üyelik bonusu', 'uyelik bonusu',
         'canlı casino', 'canli casino', 'rulet', 'poker', 'iddaa', 'kumarhane',
         'promosyon kodu', 'telegram kanal', 'haftalık kayıp', 'haftalik kayip',
+        'özel oran', 'ozel oran', 'garanti kazan',
+        'spin', 'pusula özel', 'pusula ozel',
         'metin2', 'pvp server', 'mt2', '1-99', '1-105', '55-250',
         'orta emek', 'zor emek', 'kolay emek', 'wslik server', 'açılıyor hemen indir',
         'aciliyor hemen indir', 'avantajlı başla', 'avantajli basla',

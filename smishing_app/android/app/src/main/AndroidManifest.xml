@@ -11,7 +11,7 @@
 
     <application
         android:usesCleartextTraffic="true"
-        android:label="AVO Sms Security"
+        android:label="AI Sms Security"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
 
